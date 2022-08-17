@@ -42,18 +42,17 @@ function showTime() {
     setTimeout(showTime, 1000);
 }
 
-function showDate() {
-    const date = new Date();
-    const options = {weekday: 'long', month: 'long', day: 'numeric'};
-    const currentDate = date.toLocaleDateString('en-US', options);
-    dateBox.textContent = currentDate;
-}
-
 const date = new Date();
 const hours = date.getHours();
 const timeOfDayList = ['night', 'morning', 'afternoon', 'evening'];
 const timeOfDay = getTimeOfDay();
 const greetingText = `Good ${timeOfDay},`;
+
+function showDate() {
+    const options = {weekday: 'long', month: 'long', day: 'numeric'};
+    const currentDate = date.toLocaleDateString('en-US', options);
+    dateBox.textContent = currentDate;
+}
 
 function getTimeOfDay() {
     const weekDay = Math.floor(hours / 6)
