@@ -1,2 +1,2 @@
 # momentum-copy
-https://romanovacute.github.io/momentum-copy/
+https://romanovacute.github.io/momentum-copy/momentum/
