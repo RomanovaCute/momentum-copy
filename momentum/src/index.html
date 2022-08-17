@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="/assets/img/m.png" rel="shortcut icon" />
+  <link rel="stylesheet" href="./css/owfont-regular.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <title>momentum</title>
+</head>
+<body>
+  <header class="header">
+    <div class="player">
+        <div class="player__controls">
+          <button class="player__btn player__btn--back icon-previous" type="button"></button>
+          <button class="player__btn player__btn--play icon-play" type="button">
+          </button>
+          <button class="player__btn player__btn--forward icon-next" type="button"></button>
+          <input class="player__range player__progress-bar" value="0" min="0" max="100" type="range">
+          <div class="player__duration-wrapper">
+            <span class="player__timer">0:00</span>
+            /
+            <span class="player__duration">1:55</span>
+          </div>
+          <button class="player__btn player__btn--volume icon-volumeHigh" type="button"></button>
+          <input class="player__range player__volume" min="0" max="100" type="range">
+        </div>
+        <div class="player__list-wrapper">
+          <ul class="player__list">
+            <!-- <li class="player__item">
+              Aqua Caelestis
+            </li>
+            <li class="player__item">
+              Ennio Morricone
+            </li>
+            <li class="player__item">
+              River Flows In Your
+            </li>
+            <li class="player__item">
+              Summer Wind
+            </li> -->
+          </ul>
+        </div>
+    </div>
+    <div class="weather">
+      <input type="text" class="city" value="Minsk"/>
+      <div class="weather-error"></div>
+
+      <div class="main-description">
+        <i class="weather-icon owf"></i>
+        <span class="temperature"></span>
+      </div>
+      
+      <div class="description-container">
+        <span class="weather-description"></span>
+        <div class="wind"></div>
+        <div class="humidity"></div>
+      </div>
+
+    </div>
+  </header>
+  <main class="main">
+    <div class="slider-icons">
+      <button class="slide-prev slider-icon"></button>
+      <button class="slide-next slider-icon"></button>
+    </div>
+    <time class="time"></time>
+    <date class="date"></date>
+    <div class="greeting-container">
+      <span class="greeting"></span>
+      <input type="text" class="name" placeholder="enter your name" />
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="settings-wrapper">
+      <div class="settings-container hidden">
+        <ul class="setting-list">
+          <li class="set-btn" data-tab="#set-lang">Язык</li>
+          <li class="set-btn" data-tab="#set-background">Фон</li>
+          <li class="set-btn" data-tab="#set-display">Дисплей</li>
+          <li class="set-btn" data-tab="#set-about">Информация</li>
+        </ul>
+        <ul class="settings-box">
+          <li class="set-lang-box set-item" id="set-lang">
+            <h3 class="set-lang-title">Язык</h3>
+            <div class="set-lang-input-box">
+              <input type="radio" name="language" id="lang-eng" checked>
+              <label for="lang-eng">English</label>
+            </div> 
+            <div class="set-lang-input-box">
+              <input type="radio" name="language" id="lang-ru">
+              <label for="lang-ru">English</label>
+            </div> 
+          </li>
+          <li class="set-background-box set-item" id="set-background">
+            <h3 class="set-bg-title">Фон</h3>
+            <div class="set-bg-input-box">
+              <input type="radio" name="background" id="bg-github" checked>
+              <label for="bg-github">GitHub</label>
+            </div>
+            <div class="set-bg-input-box">
+              <input type="radio" name="background" id="bg-unsplash">
+              <label for="bg-unsplash">Unsplash</label>
+            </div> 
+            <div class="set-bg-input-box">
+              <input type="radio" name="background" id="bg-flickr">
+              <label for="bg-flickr">Flickr</label>
+            </div> 
+          </li>
+          <li class="set-display-box set-item" id="set-display">
+            <h3 class="set-display-title">Отображение</h3>
+            <div class="set-display-input-box">
+              <label for="display-audio">Аудио</label>
+              <button id="display-audio" class="checkbox" role="switch" aria-checked="false"></button>
+            </div>
+            <div class="set-display-input-box">
+              <label for="display-weather">Погода</label>
+              <button id="display-weather" class="checkbox" role="switch" aria-checked="false"></button>
+            </div>
+            <div class="set-display-input-box">
+              <label for="display-time">Время</label>
+              <button id="display-time" class="checkbox" role="switch" aria-checked="false"></button>
+            </div>
+            <div class="set-display-input-box">
+              <label for="display-date">Дата</label>
+              <button id="display-date" class="checkbox" role="switch" aria-checked="false"></button>
+            </div>
+            <div class="set-display-input-box">
+              <label for="display-greet">Приветствие</label>
+              <button id="display-greet" class="checkbox" role="switch" aria-checked="false"></button>
+            </div>
+            <div class="set-display-input-box">
+              <label for="display-quote">Цитата</label>
+              <button id="display-quote" class="checkbox" role="switch" aria-checked="false"></button>
+            </div>
+            <div class="set-display-input-box">
+              <label for="display-links">Ссылки</label>
+              <button id="display-links" class="checkbox" role="switch" aria-checked="false"></button>
+            </div>
+          </li>
+          <li class="set-about-box set-item" id="set-about">
+            <h3 class="set-about-title">О программе</h3>
+            <p class="about-year">2022</p>
+            <a href="https://github.com/RomanovaCute" class="git-link">RomanovaCute</a>
+            <a href="https://rs.school/js/" class="rs-link"></a>
+          </li>
+        </ul>
+      </div>
+      <button class="set-button"></button>
+    </div>
+    <div class="quote-box">
+      <button class="change-quote"></button>
+      <div class="quote"></div>
+      <div class="author"></div>
+    </div>
+  </footer>
+  <script src="/dist/main.js"></script>
+</body>
+</html>
