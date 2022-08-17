@@ -42,7 +42,7 @@ body {
 }
 
 .icon-previous {
-  background-image: url('./assets/img/left-arrow.png');
+  background-image: url('/assets/img/left-arrow.png');
   filter: invert();
 }
 
