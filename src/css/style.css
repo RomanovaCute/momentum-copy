@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Noto Sans';
-  src: url("./assets/fonts/notosans.woff"); /* Путь к файлу со шрифтом */
+  src: url("../../assets/fonts/notosans.woff"); /* Путь к файлу со шрифтом */
  }
 
 * {
