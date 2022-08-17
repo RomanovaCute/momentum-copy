@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Noto Sans';
-  src: url("/assets/fonts/notosans.woff"); /* Путь к файлу со шрифтом */
+  src: url("assets/fonts/notosans.woff"); /* Путь к файлу со шрифтом */
  }
 
 * {
@@ -42,7 +42,7 @@ body {
 }
 
 .icon-previous {
-  background-image: url('/assets/img/left-arrow.png');
+  background-image: url('assets/img/left-arrow.png');
   filter: invert();
 }
 
@@ -66,12 +66,12 @@ body {
 }
 
 .icon-play {
-  background-image: url('/assets/img/play.png');
+  background-image: url('assets/img/play.png');
   filter: invert();
 }
 
 .icon-pause{
-  background-image: url('/assets/img/pause-button.png');
+  background-image: url('assets/img/pause-button.png');
   filter: invert();
 }
 
@@ -90,7 +90,7 @@ body {
 }
 
 .icon-next {
-  background-image: url('/assets/img/chevron.png');
+  background-image: url('assets/img/chevron.png');
   filter: invert();
 }
 
@@ -122,12 +122,12 @@ input[type=range]::-webkit-slider-thumb {
 
 .icon-volumeHigh {
   width: 24px;
-  background-image: url('/assets/img/medium-volume.png');
+  background-image: url('assets/img/medium-volume.png');
   filter: invert();
 }
 
 .icon-volumeMute{
-  background-image: url('/assets/img/mute-speaker.png');
+  background-image: url('assets/img/mute-speaker.png');
 }
 
 .player__list > li{
@@ -157,7 +157,7 @@ input[type=range]::-webkit-slider-thumb {
   left: 0;
   width: 15px;
   height: 20px;
-  background-image: url('/assets/img/play.png');
+  background-image: url('assets/img/play.png');
   background-repeat: no-repeat;
   background-size: contain;
   opacity: 0.75;
@@ -284,12 +284,12 @@ input[type=range]::-webkit-slider-thumb {
 
 .slide-prev {
   left: 20px;
-  background-image: url("/assets/svg/slider-prev.svg");
+  background-image: url("assets/svg/slider-prev.svg");
 }
 
 .slide-next {
   right: 20px;
-  background-image: url("/assets/svg/slider-next.svg");
+  background-image: url("assets/svg/slider-next.svg");
 }
 
 .time {
@@ -360,7 +360,7 @@ footer {
 
 .change-quote {
   margin-bottom: 30px;
-  background-image: url("/assets/svg/reload.svg");  
+  background-image: url("assets/svg/reload.svg");  
 }
 
 .quote {
@@ -401,7 +401,7 @@ footer {
 .set-button{
   width: 35px;
   height: 35px;
-  background-image: url('/assets/img/gear.png');
+  background-image: url('assets/img/gear.png');
   filter: invert();
   background-size: contain;
   background-position: center center;
