@@ -1,9 +1,48 @@
+import '../time/index'
+
 const settingBtn = document.querySelector('.set-button'),
     setContainer = document.querySelector('.settings-container'),
     allBtn = document.querySelectorAll('.set-btn'),
     tabsItems = document.querySelectorAll('.set-item'),
     checkbox = document.querySelectorAll('.checkbox');
 
+const allWidgets = document.querySelectorAll('.widget-box'),
+    widget = document.querySelectorAll('.certain-widget');
+
+const state = {
+    language: 'en',
+    photoSource: 'github',
+    blocks: [
+        {
+            widget: 'audio',
+            shown: true
+        },
+        {
+            widget: 'weather',
+            shown: true
+        },
+        {
+            widget: 'time',
+            shown: true
+        },
+        {
+            widget: 'date',
+            shown: true
+        },
+        {
+            widget: 'greeting',
+            shown: true
+        },
+        {
+            widget: 'quote',
+            shown: true
+        },
+        {
+            widget: 'links',
+            shown: true
+        }
+    ]
+}
 
 settingBtn.addEventListener('click', openMenu)
 
@@ -39,8 +78,25 @@ checkbox.forEach((elem) => {
     elem.addEventListener('click', () => {
         console.log('clicked');
         let currentCheckbox = elem;
-        currentCheckbox.classList.toggle('on')
-        
-
+        currentCheckbox.classList.toggle.remove('on')
     })
 })
+
+//настройки отображения
+
+widget.forEach((elem, index) => elem.addEventListener('click', () => {
+    console.log(elem);
+    console.log(index);
+    let input = elem.getElementsByTagName('input')
+
+    console.log(input);
+
+    state.blocks[index].shown = input[0].checked;
+    // setLocalStorageState();
+    if (input[0].checked) {
+      allWidgets[index].classList.remove('disabled');
+    }
+    else {
+      allWidgets[index].classList.add('disabled');
+    }
+  }));
