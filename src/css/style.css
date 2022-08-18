@@ -202,7 +202,7 @@ input[type=range]::-webkit-slider-thumb {
   transform: scale(1.1);
 }
 
-
+/* погода */
 .weather {
   display: flex;
   flex-direction: column;
@@ -292,6 +292,7 @@ input[type=range]::-webkit-slider-thumb {
   background-image: url("../../assets/svg/slider-next.svg");
 }
 
+/* время и дата */
 .time {
   min-height: 124px;
   margin-bottom: 40px;
@@ -352,6 +353,7 @@ footer {
   padding: 20px;
 }
 
+/* цитаты */
 .quote-box {
   display: flex;
   flex-direction: column;
@@ -473,7 +475,6 @@ footer {
 }
 
 /* переключатели функций */
-
 .set-display-input-box{
   display: flex;
   flex-direction: row;
@@ -482,40 +483,42 @@ footer {
   gap: 10px;
 }
 
-.set-display-box .checkbox {
-  width: 52px;
-  height: 32px;
-  padding: 4px;
+.switch{
   display: flex;
+  position: relative;
   align-items: center;
-  background-color: #49454f;
-  border-radius: 24px;
-  border: solid 2px #938f99;
-  transition: border-color 200ms, background-color 200ms;
-  cursor: pointer;
+  width: 50px;
+  height: 30px;
+  border-radius: 100px;
+  background: #c9c9c9;
+  transition: all 0.5s;
 }
 
-.set-display-box .checkbox::before{
-  content: "";
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  border-radius: 12px;
-  background-color: #938f99;
-  transition: width 200ms, height 200ms, transform 200ms, background-color 200ms;
+.switch::before{
+  content: '';
+  display: block;
+  background: #fff;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  position: absolute;
+  transition: all 0.5s;
+  left: 3px;
 }
 
-.set-display-box .checkbox.on{
-  border-color: #D0BCFF;
-  background-color: #D0BCFF;
+.checkbox{
+  display: none;
 }
 
-.set-display-box .checkbox.on::before{
-  background-color: #381e72;
-  width: 24px;
-  height: 24px;
-  transform: translateX(18px);
+.checkbox.on + .switch {
+  background: #4c86d8;
 }
+
+.checkbox.on:checked + .switch::before {
+  background: #fff;
+  left: calc((50px - 22px) - 3px);
+}
+
 
 @media (max-width: 768px) {
   .time {
@@ -536,4 +539,10 @@ footer {
     font-size: 32px;
     padding: 5px;
   }
+}
+
+/* отключение отображаение */
+.widget-box.disabled {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
 }
