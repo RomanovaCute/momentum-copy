@@ -506,10 +506,6 @@ footer {
   left: 3px;
 }
 
-.checkbox{
-  display: none;
-}
-
 .checkbox.on + .switch {
   background: #4c86d8;
 }
@@ -519,6 +515,9 @@ footer {
   left: calc((50px - 22px) - 3px);
 }
 
+.checkbox{
+  display: none;
+}
 
 @media (max-width: 768px) {
   .time {
