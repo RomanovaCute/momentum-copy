@@ -1,5 +1,3 @@
-import '../time/index'
-
 const settingBtn = document.querySelector('.set-button'),
     setContainer = document.querySelector('.settings-container'),
     allBtn = document.querySelectorAll('.set-btn'),
@@ -78,18 +76,17 @@ checkbox.forEach((elem) => {
     elem.addEventListener('click', () => {
         console.log('clicked');
         let currentCheckbox = elem;
-        currentCheckbox.classList.toggle.remove('on')
+        if(!currentCheckbox.classList.contains('on')){
+            currentCheckbox.classList.add('on')
+        } else {
+            currentCheckbox.classList.remove('on')
+        }
     })
 })
 
 //настройки отображения
-
 widget.forEach((elem, index) => elem.addEventListener('click', () => {
-    console.log(elem);
-    console.log(index);
     let input = elem.getElementsByTagName('input')
-
-    console.log(input);
 
     state.blocks[index].shown = input[0].checked;
     // setLocalStorageState();
