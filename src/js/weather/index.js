@@ -47,6 +47,7 @@ function setCity(event) {
       getWeather();
       city.blur();
       setLocalStorageCity()
+      errorBox.innerHTML = '';
     }
   }
 
