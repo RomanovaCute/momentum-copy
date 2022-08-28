@@ -1,3 +1,5 @@
+
+
 const settingBtn = document.querySelector('.set-button'),
     setContainer = document.querySelector('.settings-container'),
     allBtn = document.querySelectorAll('.set-btn'),
@@ -6,6 +8,8 @@ const settingBtn = document.querySelector('.set-button'),
 
 const allWidgets = document.querySelectorAll('.widget-box'),
     widget = document.querySelectorAll('.certain-widget');
+
+// const langBtns = document.querySelectorAll('.lang-button')
 
 const state = {
     language: 'en',
@@ -97,3 +101,6 @@ widget.forEach((elem, index) => elem.addEventListener('click', () => {
       allWidgets[index].classList.add('disabled');
     }
   }));
+
+
+// смена языка даты

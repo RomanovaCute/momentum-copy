@@ -1,3 +1,7 @@
+import '../language/index'
+import i18next from 'i18next';
+import '../settings/index'
+
 const timeBox = document.querySelector('.time');
 const dateBox = document.querySelector('.date')
 const showGreeting = document.querySelector('.greeting')
@@ -7,21 +11,6 @@ const slidenext = document.querySelector('.slide-next')
 const slideprev = document.querySelector('.slide-prev')
 let randomNum;
 let imageURL;
-
-const greetingTranslation = {
-  en: {
-    morning: 'Good morning',
-    afternoon: 'Good afternoon',
-    evening: 'Good evening',
-    night: 'Good night'
-  },
-  ru: {
-    morning: 'Доброе утро',
-    afternoon: 'Добрый день',
-    evening: 'Добрый вечер',
-    night: 'Доброй ночи'
-  }
-}
 
 function initMomentum() {
   showTime();
@@ -42,17 +31,21 @@ function showTime() {
     setTimeout(showTime, 1000);
 }
 
+
 const date = new Date();
 const hours = date.getHours();
 const timeOfDayList = ['night', 'morning', 'afternoon', 'evening'];
 const timeOfDay = getTimeOfDay();
 const greetingText = `Good ${timeOfDay},`;
 
+
 function showDate() {
+    const timeCode = 'en-US'
     const options = {weekday: 'long', month: 'long', day: 'numeric'};
-    const currentDate = date.toLocaleDateString('en-US', options);
+    const currentDate = date.toLocaleDateString(`${timeCode}`, options);
     dateBox.textContent = currentDate;
 }
+
 
 function getTimeOfDay() {
     const weekDay = Math.floor(hours / 6)
@@ -151,6 +144,6 @@ slideprev.addEventListener('click', getSlidePrev)
 
 
 
+initMomentum()
 
-
-  initMomentum()
+export default { Date };
