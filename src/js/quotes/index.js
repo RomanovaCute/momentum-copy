@@ -11,7 +11,7 @@ async function getQuote (){
     const res = await fetch(quotes);
     const data = await res.json();
     quotesNumber = data.length;
-    console.log(data);
+    // console.log(data);
     getRandomQuote()
 
     quoteText.textContent = `"${data[randomQuote].text}"`;
