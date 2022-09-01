@@ -6,6 +6,7 @@
   <link href="/assets/img/m.png" rel="shortcut icon" />
   <link rel="stylesheet" href="./src/css/owfont-regular.css" />
   <link rel="stylesheet" href="./src/css/style.css" />
+  <link rel="shorcut icon" href="./assets/img/logo.png" />
   <title>momentum</title>
 </head>
 <body>
@@ -69,7 +70,6 @@
         </ul>
         <ul class="settings-box">
           <li class="set-lang-box set-item" id="set-lang">
-            <!-- <h3 class="set-lang-title">Language</h3> -->
             <div class="set-lang-input-box">
               <input type="radio" name="language" id="lang-eng" class="lang-button" checked>
               <label for="lang-eng">English</label>
@@ -80,22 +80,23 @@
             </div> 
           </li>
           <li class="set-background-box set-item" id="set-background">
-            <!-- <h3 class="set-bg-title">Background</h3> -->
             <div class="set-bg-input-box">
-              <input type="radio" name="background" id="bg-github" checked>
+              <input type="radio" name="background" id="bg-github"  class="pic-source" checked>
               <label for="bg-github">GitHub</label>
             </div>
             <div class="set-bg-input-box">
-              <input type="radio" name="background" id="bg-unsplash">
+              <input type="radio" name="background" id="bg-unsplash"  class="pic-source">
               <label for="bg-unsplash">Unsplash</label>
             </div> 
             <div class="set-bg-input-box">
-              <input type="radio" name="background" id="bg-flickr">
+              <input type="radio" name="background" id="bg-flickr"  class="pic-source">
               <label for="bg-flickr">Flickr</label>
             </div> 
+            <div class="input-box">
+              <input type="text" class="tag" placeholder="Please enter a tag">
+            </div>
           </li>
           <li class="set-display-box set-item" id="set-display">
-            <!-- <h3 class="set-display-title">Mapping</h3> -->
             <div class="set-display-input-box certain-widget">
               <span class="set-subtitle">Audio</span>
               <input type="checkbox" id="display-audio" class="checkbox on" checked></input>
@@ -133,7 +134,6 @@
             </div>
           </li>
           <li class="set-about-box set-item" id="set-about">
-            <!-- <h3 class="set-about-title">About app</h3> -->
             <p class="about-year">2022</p>
             <a href="https://github.com/RomanovaCute" class="git-link">RomanovaCute</a>
             <a href="https://rs.school/js/" class="rs-link"></a>
