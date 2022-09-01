@@ -460,6 +460,7 @@ footer {
   opacity: 1;
 }
 
+.set-bg-input-box label,
 .set-lang-box label{
   display: inline-block;
   margin-top: 20px;
@@ -468,6 +469,7 @@ footer {
   border: 1px solid white;
   border-radius: 6px;
   user-select: none;
+  cursor: pointer;
 }
 
 .settings-box input {
@@ -544,4 +546,34 @@ footer {
 .widget-box.disabled {
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
+}
+
+/* поиск фона по тегу */
+.set-background-box input{
+  display: flex;
+}
+
+.set-bg-input-box{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+}
+
+.set-bg-input-box input{
+  display: none;
+}
+
+
+.tag{
+  display: flex;
+  width: 150px;
+  height: 45px;
+  padding: 3px;
+  border: 0;
+  outline: none;
+  border-bottom: 1px solid white;
+  background: transparent;
+  color: white;
+  font-size: 16px;
 }
