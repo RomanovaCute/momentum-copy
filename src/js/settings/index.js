@@ -1,5 +1,3 @@
-
-
 const settingBtn = document.querySelector('.set-button'),
     setContainer = document.querySelector('.settings-container'),
     allBtn = document.querySelectorAll('.set-btn'),
@@ -9,11 +7,10 @@ const settingBtn = document.querySelector('.set-button'),
 const allWidgets = document.querySelectorAll('.widget-box'),
     widget = document.querySelectorAll('.certain-widget');
 
-// const langBtns = document.querySelectorAll('.lang-button')
 
 const state = {
     language: 'en',
-    photoSource: 'github',
+    photoSource: 'bg-github',
     blocks: [
         {
             widget: 'audio',
@@ -43,8 +40,20 @@ const state = {
             widget: 'links',
             shown: true
         }
-    ]
+    ],
 }
+
+
+function setLocalStorageState() {
+    localStorage.setItem('state', JSON.stringify(state));
+}
+
+export function getLocalStorageState() {
+    localStorage.getItem('state');
+}
+
+// setLocalStorageState();
+// getLocalStorageState();
 
 settingBtn.addEventListener('click', openMenu)
 
@@ -93,7 +102,7 @@ widget.forEach((elem, index) => elem.addEventListener('click', () => {
     let input = elem.getElementsByTagName('input')
 
     state.blocks[index].shown = input[0].checked;
-    // setLocalStorageState();
+    setLocalStorageState()
     if (input[0].checked) {
       allWidgets[index].classList.remove('disabled');
     }
@@ -102,5 +111,4 @@ widget.forEach((elem, index) => elem.addEventListener('click', () => {
     }
   }));
 
-
-// смена языка даты
+export { state };
