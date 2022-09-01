@@ -1,25 +1,34 @@
 import '../language/index'
 import i18next from 'i18next';
 import '../settings/index'
+import { state } from '../settings/index'
+import { getLocalStorageState } from '../settings/index';
 
-const timeBox = document.querySelector('.time');
-const dateBox = document.querySelector('.date')
-const showGreeting = document.querySelector('.greeting')
-const name = document.querySelector('.name')
-const body = document.querySelector('body')
-const slidenext = document.querySelector('.slide-next')
-const slideprev = document.querySelector('.slide-prev')
+const timeBox = document.querySelector('.time'),
+      dateBox = document.querySelector('.date'),
+      showGreeting = document.querySelector('.greeting'),
+      name = document.querySelector('.name'),
+      body = document.querySelector('body'),
+      slidenext = document.querySelector('.slide-next'),
+      slideprev = document.querySelector('.slide-prev'),
+      picBtns = document.querySelectorAll('.pic-source'),
+      tagInput = document.querySelector('.tag');
 let randomNum;
 let imageURL;
+let photoSourceValue;
 
-function initMomentum() {
+
+window.addEventListener('DOMContentLoaded', () => {
   showTime();
+  getLocalStorageName();
   showGreet();
   getRandomNum();
+  getLocalStorageState();
   getImageURL();
   setBg();
-}
+})
 
+/*время*/
 function showTime() {
     const time = new Date();
     const currentTime = time.toLocaleTimeString();
@@ -56,24 +65,23 @@ function showGreet() {
     showGreeting.innerHTML = greetingText;
 }
 
-function setLocalStorage() {
+function setLocalStorageName() {
     localStorage.setItem('name', name.value);
   }
-window.addEventListener('beforeunload', setLocalStorage)
+window.addEventListener('beforeunload', setLocalStorageName)
 
-function getLocalStorage() {
+function getLocalStorageName() {
     if(localStorage.getItem('name')) {
       name.value = localStorage.getItem('name');
     }
   }
-window.addEventListener('load', getLocalStorage)
 
 showTime() 
 
 
+/*фон*/
 function getRandomNum() {
   randomNum = Math.floor(Math.random()* 20 + 1);
-  console.log(randomNum);
 }
 
 function setBg() {
@@ -103,9 +111,19 @@ function getSlidePrev() {
 }
 
 function getImageURL() {
-      imageURL = imageURLCollection();
+      if(JSON.parse(localStorage.getItem('state')).photoSource === 'bg-github'){
+        imageURL = imageURLCollection();
+        console.log('github choosen');
+      } else if (JSON.parse(localStorage.getItem('state')).photoSource === 'bg-unsplash'){
+        imageURL = imageUnsplash();
+        console.log('unsplash choosen');
+      } else if (JSON.parse(localStorage.getItem('state')).photoSource === 'bg-flickr'){
+        imageURL = imageFlickr().then(data => data);
+        console.log('flickr choosen');
+      }
 }
 
+/*источники фотографий*/
 function imageURLCollection() {
     const bgNum = randomNum.toString().padStart(2, "0");
     console.log(bgNum);
@@ -113,10 +131,9 @@ function imageURLCollection() {
     return url;
   }
 
-
 async function imageUnsplash() {
   const id = 'zREUY0sQCAS5MrfzDPDZU-olHVDPVWkZM6v3eU9jVIA';
-  const url = `https://api.unsplash.com/photos/random?orientation=landscape&query=nature&client_id=${id}`;
+  const url = `https://api.unsplash.com/photos/random?orientation=landscape&query=${tag}&client_id=${id}`;
   const res = await fetch(url);
   const data = await res.json();
   imageURL = data.urls.regular;
@@ -126,24 +143,56 @@ async function imageUnsplash() {
 
 async function imageFlickr() {
   const id = 'dc556c8b1ed93bf66b8c6f08ffe13ae9';
-  const url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${id}&tags=nature&extras=url_l&format=json&nojsoncallback=1`;
+  const url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${id}&tags=${tag}&extras=url_l&format=json&nojsoncallback=1`;
   const res = await fetch(url);
   const data = await res.json();
   const photos = data.photos.photo;
-  console.log(photos);
   const index = Math.round(Math.random(0, 1) * photos.length);
-  imageURL = data.photos.photo[index].url_h;
+  imageURL = data.photos.photo[index].url_l;
   setBg();
 }
+
+//поиск фото по тегу
+let tag;
+
+function getTag(){
+  if(!localStorage.getItem('tag')){
+    tag = timeOfDay;
+  }
+  tag = localStorage.getItem('tag');
+}
+
+getTag();
+
+function setTag(event){
+  if (event.code === 'Enter') {
+    tagInput.blur();
+    localStorage.setItem('tag', tagInput.value);
+    setBg()
+    tagInput.innerHTML = '';
+  }
+}
+
+tagInput.addEventListener('keypress', setTag)
 
 // переключение слайдов кнопками
 slidenext.addEventListener('click', getSlideNext)
 slideprev.addEventListener('click', getSlidePrev)
 
 
+function setLocalStorageState(){
+  localStorage.setItem('state', JSON.stringify(state));
+}
 
-
-
-initMomentum()
-
-export default { Date };
+//переключение источника фона
+picBtns.forEach(button => {
+  button.addEventListener('click', (event) => {
+    photoSourceValue = event.target.id;
+    console.log(photoSourceValue);
+    state.photoSource = photoSourceValue;
+    
+    setLocalStorageState();
+    getImageURL();
+    setBg();
+  })
+})
