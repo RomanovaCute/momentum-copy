@@ -20,8 +20,8 @@ async function getWeather() {
         throw new Error('Not Found')
       }
 
-    console.log(data);
-    console.log(data.weather[0].id, data.weather[0].description, data.main.temp, data.wind.speed, data.main.humidity);
+    // console.log(data);
+    // console.log(data.weather[0].id, data.weather[0].description, data.main.temp, data.wind.speed, data.main.humidity);
  
     icon.className = 'weather-icon owf';
     icon.classList.add(`owf-${data.weather[0].id}`);
