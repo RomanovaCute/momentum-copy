@@ -178,3 +178,12 @@
         cursor: pointer;
     }
 }
+
+@media (max-width: 376px) {
+    .set-display-input-box{
+
+        &:first-child {
+            display: none;
+        }
+    }
+}

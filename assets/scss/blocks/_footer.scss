@@ -1,0 +1,24 @@
+footer {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr;
+    gap: 30px;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+    height: 30vh;
+    min-height: 160px;
+    padding: 20px;
+}
+
+@media (max-width: 376px) {
+    .footer{
+        height: 33vh;
+        grid-template-columns: 0.5fr 2fr 0.5fr;
+        gap: 0;
+        padding: 10px;
+
+        .quote-box{
+            font-size: 14px;
+        }
+    }
+}
