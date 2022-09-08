@@ -1,0 +1,11 @@
+@import './base/reset';
+@import './base/fonts';
+@import './base/vars';
+@import './base/mixins';
+@import './base/base';
+
+@import './blocks/header';
+@import './blocks/weather';
+@import './blocks/main';
+@import './blocks/quotes';
+@import './blocks/settings';

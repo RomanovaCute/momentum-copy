@@ -1,0 +1,180 @@
+.settings-wrapper {
+    position: relative;
+    width: min-content;
+    text-align: start;
+   
+    .settings-container{
+        position: absolute;
+        z-index: 6;
+        left: -100vh;
+        bottom: 40px;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        margin-bottom: 10px;
+        height: max-content;
+        transition: 0.3s;
+        opacity: 1;
+    
+        &.active{
+            opacity: 1;
+            left: 0;
+        }
+
+        .setting-list {
+            list-style: none;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-bottom-left-radius: 10px;
+            border-top-left-radius: 10px;
+            opacity: 1;
+          
+            .set-btn {
+                padding: 20px;
+                cursor: pointer;
+            
+                &.active{
+                    background-color: #381e72;
+                }
+            }
+        }
+
+        .settings-box{
+            position: relative;
+            display: grid;
+            grid-auto-columns: max-content;
+            padding: 20px;
+            width: 240px;
+            list-style: none;
+            background-color: rgba(0, 0, 0, 0.4);
+            border-radius: 0 10px 10px 0;
+            overflow: hidden;
+
+            .set-item {
+                position: relative;
+                right: 100vw;
+                grid-column-start: 1;
+                grid-row-start: 1;
+                display: flex;
+                flex-direction: column;
+                width: 200px;
+                opacity: 0;
+                transition: 0.5s;
+                cursor: pointer;
+
+                &.active{
+                    right: 0;
+                    opacity: 1;
+                }
+            }
+
+            input {
+                display: none;
+            }
+
+            .set-bg-input-box label,
+            .set-lang-box label{
+                display: inline-block;
+                margin-top: 20px;
+                padding: 0 15px;
+                line-height: 34px;
+                border: 1px solid white;
+                border-radius: 6px;
+                user-select: none;
+                cursor: pointer;
+            }
+
+            .set-display-box{
+                gap: 5px;
+
+                .set-display-input-box{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                    gap: 10px;
+
+                    .switch{
+                        display: flex;
+                        position: relative;
+                        align-items: center;
+                        width: 50px;
+                        height: 30px;
+                        border-radius: 100px;
+                        background: #c9c9c9;
+                        transition: all 0.5s;
+
+                        &::before{
+                            content: '';
+                            display: block;
+                            background: #fff;
+                            width: 22px;
+                            height: 22px;
+                            border-radius: 50%;
+                            position: absolute;
+                            transition: all 0.5s;
+                            left: 3px;
+                        }
+                    }
+
+                    .checkbox.on + .switch {
+                        background: #4c86d8;
+                    }
+
+                    .checkbox.on:checked + .switch::before {
+                        background: #fff;
+                        left: calc((50px - 22px) - 3px);
+                    }
+
+                    .checkbox{
+                        display: none;
+                    }
+                }
+            }
+
+            .set-background-box{
+
+                input{
+                    display: flex;
+                }
+
+                .set-bg-input-box{
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    cursor: pointer;
+
+                    input{
+                        display: none;
+                    }
+                }
+
+                .input-box{
+                    .tag{
+                        display: flex;
+                        width: 150px;
+                        height: 45px;
+                        padding: 3px;
+                        border: 0;
+                        outline: none;
+                        border-bottom: 1px solid white;
+                        background: transparent;
+                        color: white;
+                        font-size: 16px;
+                    }
+                }
+            } 
+        }
+    
+    }
+    
+    .set-button{
+        width: 35px;
+        height: 35px;
+        background-image: url('../../assets/img/gear.png');
+        filter: invert(1);
+        background-size: contain;
+        background-position: center center;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
+}
