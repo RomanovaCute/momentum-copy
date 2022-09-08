@@ -92,6 +92,12 @@
                     align-items: center;
                     gap: 10px;
 
+                    @media (max-width: 500px) {
+                        &:first-child {
+                                display: none;
+                        }
+                    }
+
                     .switch{
                         display: flex;
                         position: relative;
@@ -176,14 +182,5 @@
         background-color: transparent;
         border: none;
         cursor: pointer;
-    }
-}
-
-@media (max-width: 420px) {
-    .set-display-input-box{
-
-        &:first-child {
-            display: none;
-        }
     }
 }
