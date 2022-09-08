@@ -2,7 +2,7 @@ import '../language/index'
 import i18next from 'i18next';
 import '../settings/index'
 import { state } from '../settings/index'
-import { getLocalStorageState } from '../settings/index';
+import { checkLocalStorage } from '../settings/index';
 
 const timeBox = document.querySelector('.time'),
       dateBox = document.querySelector('.date'),
@@ -20,13 +20,14 @@ let photoSourceValue;
 
 window.addEventListener('DOMContentLoaded', () => {
   showTime();
+  checkLocalStorage();
   getLocalStorageName();
   showGreet();
   getRandomNum();
-  getLocalStorageState();
   getImageURL();
   setBg();
 })
+
 
 /*время*/
 function showTime() {

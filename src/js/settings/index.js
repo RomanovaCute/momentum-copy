@@ -2,9 +2,8 @@ const settingBtn = document.querySelector('.set-button'),
     setContainer = document.querySelector('.settings-container'),
     allBtn = document.querySelectorAll('.set-btn'),
     tabsItems = document.querySelectorAll('.set-item'),
-    checkbox = document.querySelectorAll('.checkbox');
-
-const allWidgets = document.querySelectorAll('.widget-box'),
+    checkbox = document.querySelectorAll('.checkbox'),
+    allWidgets = document.querySelectorAll('.widget-box'),
     widget = document.querySelectorAll('.certain-widget');
 
 
@@ -52,8 +51,13 @@ export function getLocalStorageState() {
     localStorage.getItem('state');
 }
 
-// setLocalStorageState();
-// getLocalStorageState();
+
+export function checkLocalStorage() {
+    if(!localStorage.getItem('state')){
+      localStorage.setItem('state', JSON.stringify(state))
+    }
+}
+
 
 settingBtn.addEventListener('click', openMenu)
 
