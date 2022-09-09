@@ -20,8 +20,6 @@ async function getWeather() {
         throw new Error('Not Found')
       }
 
-    // console.log(data);
-    // console.log(data.weather[0].id, data.weather[0].description, data.main.temp, data.wind.speed, data.main.humidity);
  
     icon.className = 'weather-icon owf';
     icon.classList.add(`owf-${data.weather[0].id}`);
@@ -42,14 +40,18 @@ async function getWeather() {
 getWeather()
 getLocalStorageCity()
 
-function setCity(event) {
-    if (event.code === 'Enter') {
+city.addEventListener('blur', setCity)
+function setCity(){
       getWeather();
-      city.blur();
       setLocalStorageCity()
       errorBox.innerHTML = '';
-    }
-  }
+}
+    // if (event.code === 'Enter') {
+    //   getWeather();
+    //   city.blur();
+    //   setLocalStorageCity()
+    //   errorBox.innerHTML = '';
+    // }
 
 function setLocalStorageCity() {
     localStorage.setItem('city', city.value);
